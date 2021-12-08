@@ -1,0 +1,147 @@
+@import 'basics';
+
+header {
+    background-color: $white;
+}
+nav {
+    z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: $black-75;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    &.open {
+        display: block;
+    }
+}
+.container__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.3rem 1.5rem;
+}
+.menu-toggle {
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo {
+    margin: 0 auto 0 1rem;
+    padding-bottom: 0.4rem;
+}
+.menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    background: $white;
+    animation: slide 0.4s ease-in;
+}
+.menu-item {
+    padding: 0 0 0 1rem;
+    margin-bottom: 1.2rem;
+    &:first-of-type {
+        margin-top: 4rem;
+    }
+}
+.menu-link {
+    color: $dark;
+    font-weight: 700;
+}
+
+.nav-btns {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    .btn-avatar,
+    .btn-cart-icon {
+        max-width: 1.5rem;
+    }
+}
+@media(min-width: $bp-md) {
+    .container__header {
+        border-bottom: 1px solid $muted-light;
+        position: relative;
+    }
+    .menu-item {
+        padding: 0 0 0 calc(100vw - 85vw);
+    }
+}
+@media(min-width: $bp-lg) {
+    .container__header {
+        padding: 1.9rem 0;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    .logo {
+        margin: 0;
+        padding: 0;
+    }
+    nav {
+        display: block;
+        background: none;
+        position: relative;
+        height: auto;
+        width: auto;
+        margin: 0 auto 0 3.5rem;
+    }
+    .menu-list {
+        flex-direction: row;
+        gap: 1.8rem;
+        width: auto;
+        animation: none;
+    }
+    .menu-item {
+        padding: 0;
+        margin-bottom: 0;
+        position: relative;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2.9rem;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: transparent;
+            transition: background-color 0.4s ease;
+        }
+        &:hover > .menu-link{
+            color: $dark;
+        }
+        &:hover::after {
+            background: $accent;
+        }
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+    .menu-link {
+        font-weight: 400;
+        color: $muted-dark;
+        transition: color 0.4s ease;
+    }
+    .nav-btns {
+        gap: 2.6rem;
+        .btn-avatar {
+            max-width: 3.2rem;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            &:hover {
+                border-color: $accent;
+            }
+        }
+    } 
+}
+@keyframes slide {
+    from {
+        transform: translateX(-100%);
+    } 
+    to {
+        transform: translateX(0);
+    }
+}

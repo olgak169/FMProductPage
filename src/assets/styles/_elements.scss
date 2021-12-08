@@ -1,0 +1,84 @@
+@import 'basics';
+.btn {
+    border-radius: $b-rad;
+}
+.btn-accent {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    background: $accent;
+    color: $white;
+    padding: 1.2rem 2.2rem;
+}
+.action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    .btn-accent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        gap: 1rem;
+        &::after {
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 50%;
+            bottom: -2rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: $accent-pale;
+            filter: blur(5px);
+            z-index: -1;
+        }
+    }
+}
+.amount-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $light;
+    padding: 1.2rem 1.5rem;
+    border-radius: 0.4rem;
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .amount {
+        font-weight: 700;
+        line-height: 1;
+    }
+}
+
+@media(min-width: $bp-md) {
+    .action-btns {
+        flex-direction: row;
+        .amount-btn {
+            flex-basis: 35%;
+        }
+        .btn-accent {
+            flex-basis: 65%;
+        }
+    }
+}
+@media(min-width: $bp-lg) {
+    .action-btns {
+        padding: 2rem 0;
+        gap: 1.5rem;
+        .amount-btn {
+            flex-basis: 35%;
+            padding: 1.3rem 1rem;
+        }
+        .btn-accent {
+            flex-basis: 60%;
+            gap: 0.8rem;
+            transition: background-color 0.4s ease;
+            &:hover {
+                background: lighten($accent, 8%);
+            }
+        }
+    }
+}

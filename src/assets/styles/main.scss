@@ -1,28 +1,6 @@
-$accent: hsl(26, 100%, 55%);
-$accent-pale: hsl(25, 100%, 94%);
-
-$dark: hsl(220, 13%, 13%);
-$muted-dark: hsl(219, 9%, 45%);
-$muted-light: hsl(220, 14%, 75%);
-$light: hsl(223, 64%, 98%);
-$white: hsl(0, 0%, 100%);
-$black: hsl(0, 0%, 0%);
-$black-75: hsl(0 0% 0% / 0.75);
-
-$b-rad: 0.5rem;
-$bp-md: 35rem;
-$bp-lg: 62rem;
-$bp-xl: 70rem;
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-body {
-    font-family: 'Kumbh Sans', sans-serif;
-    background: $white;
-    color: $dark;
-}
+@use 'basics';
+@use 'nav';
+@use 'details';
+@use 'img-comp';
+@use 'cart';
+@use 'elements';

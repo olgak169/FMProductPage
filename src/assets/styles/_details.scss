@@ -1,0 +1,97 @@
+@import 'basics';
+
+.container__details {
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+}
+.brand-name {
+    text-transform: uppercase;
+    color: $accent;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+.product-name {
+    font-size: clamp(1.2rem, 1.2rem + 2vw, 1.7rem);
+}
+.product-description {
+    margin: 1rem 0 1.5rem 0;
+    line-height: 1.7;
+    font-size: 0.9rem;
+    color: $muted-dark;
+}
+.container__price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .price-now {
+        font-size: 1.8rem; 
+        span {
+            background: $accent-pale;
+            color: $accent;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-left: 1.5rem;
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.2rem;
+        }
+    }
+    .price-before {
+        color: $muted-light;
+        font-size: 0.9rem;
+        text-decoration: line-through;
+    }
+}
+
+@media(min-width: $bp-md) {
+    .container__details {
+        margin: 2rem auto;
+        padding: 0;
+        max-width: 40rem;
+    }
+}
+@media(min-width: $bp-xl) {
+    .container__product {
+        margin: 5rem 0;
+        padding: 0 3rem;
+        display: flex;
+        align-items: center;
+        gap: 8rem; 
+        & > * {
+            flex: 1;
+        }
+    }
+    .container__details {
+        margin:4.5rem 0;
+        padding: 0;
+        .brand-name {
+            margin-bottom: 1.2rem;
+            font-size: 0.8rem;
+        }
+        .product-name {
+            font-size: 2.7rem;
+            line-height: 1.1;
+        }
+        .product-description {
+            margin: 2.3rem 0 1.5rem 0;
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+        .container__price {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+            h2 {
+                font-size: 1.8rem;
+                span {
+                    margin-left: 1rem;
+                    padding: 0.3rem 0.6rem;
+                }
+            }
+            h3 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
